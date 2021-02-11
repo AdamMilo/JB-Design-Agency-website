@@ -1,8 +1,54 @@
 .banner {
+  position: relative;
+
+  padding: 5%;
+  z-index: 0;
+  background-image: url(../img/MountainBanner.jpg);
+  background-size: 100%; //centers vertically, while cover -->centers horizontally
+  background-position: center;
+
   background-color: var(--primary-light);
   grid-column: leftSidebar-start / rigthSidebar-end;
 
-  //test
-  font-size: 4rem;
-  padding: 4rem;
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 1; //should be over the background and under the content
+
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    clip-path: polygon(45% 0%, 100% 0%, 100% 100%, 10% 100%);
+    background-color: var(--primary-dark);
+  }
+
+  &__container {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+    grid-template-columns: 40vw minmax(min-content, 1fr);
+    width: 100%;
+    height: 100%;
+  }
+
+  &__content {
+    padding: 0 5%;
+    position: relative;
+    z-index: 2;
+
+    grid-column: 2/3;
+    display: grid;
+    grid-row-gap: 3rem;
+    grid-auto-rows: min-content;
+  }
+  &__logo-box {
+    width: 20rem;
+    height: 20rem;
+    justify-self: end;
+  }
+  &__logo {
+    width: 100%;
+  }
 }
