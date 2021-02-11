@@ -1,0 +1,58 @@
+//Our Colors
+//dark gray -->  rgb(36, 39, 46);
+//dirty gold --> rgb(228, 183, 99);
+:root {
+  --primary-dark: rgb(36, 39, 46);
+  --primary-light: rgb(228, 183, 99);
+
+  --text-light: rgb(231, 223, 223);
+  --text-dark: rgb(8, 8, 8);
+}
+
+//CSS reset
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // (10/16)*100  --> 1rem = 10px
+}
+body {
+  box-sizing: inherit;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+button:focus,
+input {
+  outline: none;
+  font-family: inherit;
+}
+//Our overal layout-grid definition
+.body-grid {
+  display: grid;
+
+  grid-template-rows:
+    [banner-start]120vh
+    [banner-end whoWeAre-start] min-content
+    [whoWeAre-end ourProjects-start] min-content
+    [ourProjects-end getCreative-start] min-content
+    [getCreative-end aboutUs-start] min-content
+    [aboutUs-end brandStrategy-start] 200vh
+    [brandStrategy-end footer-start]120vh
+    [footer-end];
+
+  grid-template-columns:
+    [leftSidebar-start] 4rem //fixed width sidebar for decorations
+    [leftSidebar-end full-start] minmax(min-content, 1fr) //responsive empty column
+    [center-start] repeat(8, [col-start] minmax(min-content, 1fr) [col-end])
+    [center-end] minmax(min-content, 1fr) //responsive empty column
+    [full-end rightSidebar-start] 4rem //fixed width sidebar for decorations
+    [rightSidebar-end];
+}

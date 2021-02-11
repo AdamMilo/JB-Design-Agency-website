@@ -1,0 +1,85 @@
+:root {
+  --primary-dark: rgb(36, 39, 46);
+  --primary-light: rgb(228, 183, 99);
+  --text-light: rgb(231, 223, 223);
+  --text-dark: rgb(8, 8, 8); }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
+body {
+  box-sizing: inherit; }
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0; }
+
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: inherit; }
+
+button:focus,
+input {
+  outline: none;
+  font-family: inherit; }
+
+.body-grid {
+  display: grid;
+  grid-template-rows: [banner-start] 120vh [banner-end whoWeAre-start] min-content [whoWeAre-end ourProjects-start] min-content [ourProjects-end getCreative-start] min-content [getCreative-end aboutUs-start] min-content [aboutUs-end brandStrategy-start] 200vh [brandStrategy-end footer-start] 120vh [footer-end];
+  grid-template-columns: [leftSidebar-start] 4rem [leftSidebar-end full-start] minmax(min-content, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 1fr) [col-end]) [center-end] minmax(min-content, 1fr) [full-end rightSidebar-start] 4rem [rightSidebar-end]; }
+
+body {
+  font-family: helvetica;
+  font-weight: 100; }
+
+.banner {
+  background-color: var(--primary-light);
+  grid-column: leftSidebar-start / rigthSidebar-end;
+  font-size: 4rem;
+  padding: 4rem; }
+
+.whoWeAre {
+  background-color: var(--primary-dark);
+  grid-column: full-start / full-end;
+  font-size: 4rem;
+  padding: 4rem;
+  height: 40vh; }
+
+.ourProjects {
+  background-color: var(--primary-light);
+  grid-column: full-start / full-end;
+  font-size: 4rem;
+  padding: 4rem;
+  height: 10rem; }
+
+.getCreative {
+  background-color: var(--primary-dark);
+  grid-column: full-start / full-end;
+  font-size: 4rem;
+  padding: 4rem;
+  height: 40vh; }
+
+.aboutUs {
+  background-color: var(--primary-light);
+  grid-column: full-start / full-end;
+  font-size: 4rem;
+  padding: 4rem;
+  height: 10rem; }
+
+.brandStrategy {
+  background-color: #fff;
+  grid-column: full-start / full-end;
+  font-size: 4rem;
+  padding: 4rem;
+  height: 10rem; }
+
+.footer {
+  background-color: var(--primary-dark);
+  grid-column: leftSidebar-start / rightSidebar-end;
+  font-size: 4rem;
+  padding: 4rem; }
