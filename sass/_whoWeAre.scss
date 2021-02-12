@@ -6,6 +6,10 @@
   grid-column: 1 / -1;
 
   &__container {
+    //Preserving the layout even if the page is minimized
+    max-width: 119rem;
+    margin: -1 auto; //-1 top/bttm removes whitespace between sections
+    //------------------
     position: relative;
     z-index: 2;
     grid-column: full-start / full-end;

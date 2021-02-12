@@ -1,0 +1,50 @@
+//This is an unlinked *un imported* components file
+//Where I will copy all of my components in the case
+//this project becomes large enough to warrant a
+// SASS 7-1 pattern architecture
+
+//Standalone component made up of an image and a backgrdound before element
+//--> Currently implemented in "OurProducts" section
+.two-cards {
+  position: relative; //position set to enable z-index
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 35rem;
+  height: 40rem;
+
+  &__image {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: block; //so the image no longer gets treated as text
+  }
+  //Adding decorative before elements to the image container
+  //note that ::before/::after do not apply to <img> <br> tags ->inline elements?
+  &::before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: var(--primary-light);
+  }
+  &:after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-15%, 15%);
+    z-index: 0;
+    background-color: var(--primary-dark);
+  }
+}

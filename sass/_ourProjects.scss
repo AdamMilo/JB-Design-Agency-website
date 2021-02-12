@@ -1,9 +1,185 @@
 .ourProjects {
+  //Preserving the layout even if the page is minimized
+  max-width: 119rem;
+  margin: 0 auto;
+  //------------------
   background-color: var(--primary-light);
   grid-column: full-start / full-end;
+  background-color: transparent;
+  //########################
+  //REMEMBER TO ADD A GRAY ::after BLOCK ON THE LOW RIGHT CORNER !!!!!
+  //######################
+  //Adding a negative margin to bring the section closer to the previous one
+  margin-top: -5rem;
 
+  &__heading {
+    position: relative; //so the ::after element can be absolutely positioned
+    display: inline-block; //we want to make the width min-content not 100%
+    margin-bottom: 2rem;
+
+    //Positioning the entire header element
+    transform: translate(200%, 450%);
+    &::after {
+      content: "";
+      display: block;
+      width: 220%;
+      height: 2rem;
+
+      position: absolute;
+      bottom: -150%;
+      background-color: var(--primary-dark);
+    }
+  }
+  &__container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 40% 1fr; //The first column takes up 40% the second, takes the rest of the space
+    padding: 5%;
+  }
+
+  /*Left side of the section */
+  &__left {
+    padding-left: 10%;
+    padding-bottom: 15%;
+    transform: translateY(-10%);
+  }
+  &__description--text {
+    //Some margin and padding hacks to align the text
+    //Possibly translate property is better suited here
+    padding: 5%;
+    padding-right: 15%;
+    margin-left: -10%;
+    margin-right: -10%;
+    font-size: 1.6rem;
+  }
+
+  /*Right side of the section */
+  &__right {
+    padding-left: 10%;
+    padding-top: 5%;
+    transform: translateY(10%);
+  }
+
+  &__button {
+    transform: translateY(200%);
+  }
   //test
-  font-size: 4rem;
-  padding: 4rem;
-  height: 10rem;
+
+  min-height: 100vh;
+}
+
+//This is the left side component
+//Standalone component made up of an image and a backgrdound before element
+.two-cards {
+  position: relative; //position set to enable z-index
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 35rem;
+  height: 40rem;
+
+  &__image {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: inlineblock; //so the image no longer gets treated as text
+  }
+  //Adding decorative before elements to the image container
+  //note that ::before/::after do not apply to <img> <br> tags ->inline elements?
+  &::before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: var(--primary-light);
+  }
+  &:after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-15%, 15%);
+    z-index: 0;
+    background-color: var(--primary-dark);
+  }
+}
+
+//This is the right side component
+//Standalone complex product collage made up of a heading, image and ::before
+.product-collage {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  position: relative;
+  z-index: 2;
+
+  padding: 0%;
+  max-width: 35rem;
+  height: 30rem;
+
+  &__heading {
+    display: inline-block;
+    padding: 4% 15rem 4% 3%;
+    position: relative; //to enable z-index
+    z-index: 3;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 4rem;
+
+    background-color: var(--primary-dark);
+    color: rgba(255, 255, 255, 0.8);
+
+    transform: translate(65%, 115%);
+  }
+  &__img {
+    position: absolute; //to center align image
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: 3;
+    display: block; //to prevent the image getting treated as text
+    width: 80%;
+  }
+
+  &::before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: var(--primary-light);
+  }
+  &:after {
+    content: "";
+    display: inline-block;
+    height: 75%;
+    width: 140%;
+
+    display: grid;
+    grid-template-rows: repeat(10, 1px);
+    grid-row-gap: 0px;
+    grid-column-gap: 0px;
+
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    z-index: 0;
+    transform: translate(-15%, 25%);
+    background-image: url(../img/patterndrkblue.png);
+  }
 }
