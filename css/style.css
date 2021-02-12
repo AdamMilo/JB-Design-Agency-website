@@ -1,9 +1,3 @@
-:root {
-  --primary-dark: rgb(36, 39, 46);
-  --primary-light: rgb(228, 183, 99);
-  --text-light: rgb(231, 223, 223);
-  --text-dark: rgb(8, 8, 8); }
-
 html {
   box-sizing: border-box;
   font-size: 62.5%; }
@@ -49,8 +43,16 @@ body {
     font-size: 2.4em;
     font-style: italic;
     font-weight: 1;
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.6);
     text-align: right; }
+  .banner h1 {
+    opacity: 1; }
+
+:root {
+  --primary-dark: rgb(36, 39, 46);
+  --primary-light: rgb(228, 183, 99);
+  --text-light: rgb(231, 223, 223);
+  --text-dark: rgb(8, 8, 8); }
 
 .mb-sm {
   margin-bottom: 2rem; }
@@ -63,6 +65,44 @@ body {
 
 .mb-xl {
   margin-bottom: 8rem; }
+
+.mt-sm {
+  margin-top: 2rem; }
+
+.mt-md {
+  margin-top: 3rem; }
+
+.mt-lg {
+  margin-top: 4rem; }
+
+.mt-xl {
+  margin-top: 8rem; }
+
+@keyframes banner-animation {
+  0% {
+    transform: translateX(50%) scale(0);
+    opacity: 0.2;
+    transform-origin: top right; }
+  100% {
+    transform: translateX(0) scale(1);
+    transform-origin: top right;
+    opacity: 1; } }
+
+@keyframes pop-in-animation {
+  0% {
+    transform: scale(0); }
+  80% {
+    transform: scale(1.05);
+    filter: blur(5px); }
+  100% {
+    transform: scale(1);
+    filter: blur(0); } }
+
+@keyframes rotate-around-bottom-right {
+  0% {
+    transform: rotateY(360deg); }
+  100% {
+    transform: rotateY(0deg); } }
 
 .banner {
   position: relative;
@@ -82,7 +122,8 @@ body {
     top: 0;
     left: 0;
     clip-path: polygon(45% 0%, 100% 0%, 100% 100%, 10% 100%);
-    background-color: var(--primary-dark); }
+    background-image: linear-gradient(to top right, #24272e 30%, rgba(36, 39, 46, 0) 100%), radial-gradient(circle at top right, #24272e 35%, rgba(36, 39, 46, 0) 100%);
+    animation: banner-animation 0.4s; }
   .banner__container {
     position: relative;
     z-index: 2;
@@ -97,27 +138,30 @@ body {
     grid-column: 2/3;
     display: grid;
     grid-row-gap: 3rem;
-    grid-auto-rows: min-content; }
+    grid-auto-rows: min-content;
+    animation: pop-in-animation 0.3s ease-out; }
   .banner__logo-box {
     width: 20rem;
     height: 20rem;
-    justify-self: end; }
+    justify-self: end;
+    perspective: 250px; }
   .banner__logo {
-    width: 100%; }
+    width: 100%;
+    animation: rotate-around-bottom-right 0.3s; }
 
 .whoWeAre {
   position: relative;
   z-index: 0;
   background-color: #fff;
-  grid-column: 1 / -1;
-  height: 90vh; }
+  grid-column: 1 / -1; }
   .whoWeAre__container {
     position: relative;
     z-index: 2;
     grid-column: full-start / full-end;
     padding: 0 5%;
+    overflow: hidden;
     display: grid;
-    grid-template-columns: minmax(min-content, 1fr) 40%; }
+    grid-template-columns: minmax(min-content, 1fr) minmax(min-content, 40%); }
     .whoWeAre__container::after {
       content: "";
       position: absolute;
@@ -127,8 +171,10 @@ body {
       height: 100%;
       top: -1px;
       left: 20;
-      clip-path: polygon(8.5% 0%, 100% 0%, 100% 100%, 99% 100%);
-      background-color: var(--primary-dark); }
+      clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 99% 100%);
+      background-image: radial-gradient(circle at top left, #24272e 90%, rgba(36, 39, 46, 0.9));
+      background-repeat: no-repeat;
+      background-blend-mode: darken; }
   .whoWeAre__description {
     padding: 0 10%;
     grid-column: 1 / 2;
@@ -146,21 +192,18 @@ body {
       font-weight: 100; }
   .whoWeAre__image-box {
     position: relative;
-    grid-column: 2 / -1;
-    height: 100%; }
+    grid-column: 2 / -1; }
     .whoWeAre__image-box::after {
       content: url(../img/patternsmallgold.png);
       position: absolute;
+      display: block;
       z-index: 2;
-      bottom: 0;
-      right: 0;
-      display: block; }
+      transform: scale(0.85) translate(30%, -80%); }
   .whoWeAre__image {
     position: relative;
     display: block;
     z-index: 3;
-    width: 90%;
-    height: 90%; }
+    max-height: 70%; }
   .whoWeAre::before {
     position: absolute;
     left: 0;
