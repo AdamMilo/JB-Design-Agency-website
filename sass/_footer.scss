@@ -1,7 +1,43 @@
 .footer {
   background-color: var(--primary-dark);
   grid-column: leftSidebar-start / rightSidebar-end;
-  //test
-  font-size: 4rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
   padding: 4rem;
+  color: #fff;
+  &__heading {
+    text-align: center;
+  }
+  &__container {
+    margin-top: -20rem;
+    padding: 2.5%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__service {
+    min-height: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    & h2 {
+      font-size: 4rem;
+      font-weight: 100;
+    }
+    & ul {
+      font-size: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: left;
+
+      & li:not(:last-child) {
+        margin-bottom: 3rem;
+      }
+    }
+  }
 }

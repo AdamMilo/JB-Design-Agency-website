@@ -10,7 +10,6 @@
   //REMEMBER TO ADD A GRAY ::after BLOCK ON THE LOW RIGHT CORNER !!!!!
   //######################
   //Adding a negative margin to bring the section closer to the previous one
-  margin-top: -5rem;
 
   &__heading {
     position: relative; //so the ::after element can be absolutely positioned
@@ -35,7 +34,6 @@
     height: 100%;
     display: grid;
     grid-template-columns: 40% 1fr; //The first column takes up 40% the second, takes the rest of the space
-    padding: 5%;
   }
 
   /*Left side of the section */

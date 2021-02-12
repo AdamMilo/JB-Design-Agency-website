@@ -1,4 +1,3 @@
-
 //CSS reset
 html {
   box-sizing: border-box;
@@ -24,6 +23,9 @@ input {
   outline: none;
   font-family: inherit;
 }
+li {
+  list-style: none;
+}
 //Our overal layout-grid definition
 .body-grid {
   display: grid;
@@ -34,8 +36,8 @@ input {
     [whoWeAre-end ourProjects-start] min-content
     [ourProjects-end getCreative-start] min-content
     [getCreative-end aboutUs-start] min-content
-    [aboutUs-end brandStrategy-start] 200vh
-    [brandStrategy-end footer-start]120vh
+    [aboutUs-end brandStrategy-start] max-content
+    [brandStrategy-end footer-start] 120vh
     [footer-end];
 
   grid-template-columns:
