@@ -1,9 +1,101 @@
 .getCreative {
-  background-color: var(--primary-dark);
+  background: transparent;
   grid-column: full-start / full-end;
+  height: auto;
+  padding: 5%;
+  //TEMPORARY (TO SHOE AWAY THE SECTION UNDERNEATH
+  margin-bottom: 50rem;
 
-  //test
-  font-size: 4rem;
-  padding: 4rem;
-  height: 40vh;
+  &__heading {
+    color: var(--primary-light);
+    display: grid;
+    row-gap: 4rem;
+    font-weight: 100;
+    font-size: 8rem;
+    transform: translate(70%, -200%);
+  }
+  &__container {
+    //Preserving the layout even if the page is minimized
+    max-width: 119rem;
+    margin: 0 auto;
+    //////////////
+    display: grid;
+
+    grid-template-columns: minmax(10rem, 40%) 30%;
+    column-gap: 10rem;
+  }
+  //RIGHT SIDE OF THE CONTAINER
+  &__img-box {
+    position: relative;
+    transform: translateY(50%); //remember this is 50% of the object's own height
+
+    &::before {
+      content: "";
+      display: inline-block;
+      height: 70%;
+      width: 50%;
+
+      position: absolute;
+      z-index: 0;
+      top: -28%;
+      left: 14%;
+      background-image: url(../img/patterndrkblue.png);
+    }
+    &:after {
+      content: "";
+      display: inline-block;
+      height: 30%;
+      width: 2rem;
+
+      position: absolute;
+      bottom: 0;
+      left: 150%;
+      transform: translate(-15%, 15%);
+      z-index: 0;
+      background-color: var(--primary-light);
+    }
+  }
+}
+
+//Left side of the container
+.three-cards {
+  position: relative;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  object-fit: contain;
+  &__img {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__img-box {
+  }
+  &::before {
+    content: "";
+    display: inline-block;
+    height: 75%;
+    width: 100%;
+
+    position: absolute;
+    z-index: 0;
+    top: -10%;
+    left: 12%;
+    background-image: url(../img/patterngoldnew.png);
+  }
+  &:after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    left: -10%;
+    transform: translate(-15%, 15%);
+    z-index: 0;
+    background-color: var(--primary-dark);
+  }
 }

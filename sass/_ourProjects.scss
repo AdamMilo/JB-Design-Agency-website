@@ -2,6 +2,7 @@
   //Preserving the layout even if the page is minimized
   max-width: 119rem;
   margin: 0 auto;
+  margin-bottom: 20rem;
   //------------------
   background-color: var(--primary-light);
   grid-column: full-start / full-end;
@@ -31,7 +32,7 @@
   }
   &__container {
     width: 100%;
-    height: 100%;
+
     display: grid;
     grid-template-columns: 40% 1fr; //The first column takes up 40% the second, takes the rest of the space
   }
@@ -64,7 +65,7 @@
   }
   //test
 
-  min-height: 100vh;
+  max-height: 100vh;
 }
 
 //This is the left side component
