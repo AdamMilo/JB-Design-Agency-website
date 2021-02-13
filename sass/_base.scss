@@ -1,9 +1,72 @@
+//Our Colors
+//dark gray -->  rgb(36, 39, 46);
+//dirty gold --> rgb(228, 183, 99);
+
+//Sass color variables
+//SASS variables  (allows us to place color variables in rgba() color functions)
+//Note that they should be stored in a separate folder and outside any brackets to work
+//Placing them outisde of any selectors made them work, since they didn't work when I declared them in :root{}
+
+$primary-dark: rgb(36, 39, 46);
+$primary-light: rgb(228, 183, 99);
+
+$text-light: rgb(231, 223, 223);
+$text-dark: rgb(8, 8, 8);
+
+//Media Query Breakpoints
+$bp-largest: 67.5em; //1080px; divided by the browser default 1em =16px
+$bp-large: 56.25em; //900px;
+$bp-medium: 43.75em; //700px;
+$bp-small: 34.25em; //550px;
+$bp-smallest: 21.85em; //350px;
+
+//CSS variables (custom properties)
+:root {
+  --primary-dark: rgb(36, 39, 46);
+  --primary-light: rgb(228, 183, 99);
+
+  --text-light: rgb(231, 223, 223);
+  --text-dark: rgb(8, 8, 8);
+
+  --bp-largest: 67.5em; //1080px; divided by the browser default 1em =16px
+  --bp-large: 56.25em; //900px;
+  --bp-medium: 43.75em; //700px;
+  --bp-small: 34.25em; //550px;
+  --bp-smallest: 21.85em; //350px;
+}
+
+//RESPONSIVE BREAKPOINTS
+$bp-largest: 75em; //1200px divided by 16(default browser font size)
+$bp-large: 67.5em; //1080px;
+$bp-medium: 50em; //800px
+$bp-small: 37.5em; //600px;
+
 //CSS reset
 html {
   box-sizing: border-box;
   font-size: 62.5%; // (10/16)*100  --> 1rem = 10px
+
+  //  $bp-largest: 67.5em; //1080px; divided by the browser default 1em =16px
+  // $bp-large: 56.25em; //900px;
+  // $bp-medium: 43.75em; //700px;
+  // $bp-small: 34.25em; //550px;
+  // $bp-smallest: 21.85em; //350px;
+  // @media only screen and (max-width: $bp-largest) {
+  //   font-size: 12.5%;
+  // }
+
+  @media only screen and (max-width: $bp-large) {
+    font-size: 60.5%;
+  }
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 50.5%;
+  }
+  @media only screen and (max-width: $bp-small) {
+    font-size: 0.5%;
+  }
 }
 body {
+  // margin: 0 auto; //Keeps the entire website centered on the viewport
   box-sizing: inherit;
 }
 *,
@@ -41,10 +104,10 @@ li {
     [footer-end];
 
   grid-template-columns:
-    [leftSidebar-start] 4rem //fixed width sidebar for decorations
+    [leftSidebar-start] min-content //fixed width sidebar for decorations
     [leftSidebar-end full-start] minmax(min-content, 1fr) //responsive empty column
     [center-start] repeat(8, [col-start] minmax(min-content, 1fr) [col-end])
     [center-end] minmax(min-content, 1fr) //responsive empty column
-    [full-end rightSidebar-start] 4rem //fixed width sidebar for decorations
+    [full-end rightSidebar-start] min-content //fixed width sidebar for decorations
     [rightSidebar-end];
 }

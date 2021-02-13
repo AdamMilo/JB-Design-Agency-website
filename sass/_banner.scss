@@ -1,16 +1,15 @@
 .banner {
-
-
   position: relative;
 
+  overflow: hidden;
   padding: 5%;
   z-index: 0;
   background-image: url(../img/MountainBanner.jpg);
   background-size: 100%; //centers vertically, while cover -->centers horizontally
   background-position: center;
-
   background-color: var(--primary-light);
   grid-column: leftSidebar-start / rigthSidebar-end;
+  // min-width: 100vw;
 
   //Gray Angled banner rectangle
   &::after {

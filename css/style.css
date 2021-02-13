@@ -1,6 +1,26 @@
+:root {
+  --primary-dark: rgb(36, 39, 46);
+  --primary-light: rgb(228, 183, 99);
+  --text-light: rgb(231, 223, 223);
+  --text-dark: rgb(8, 8, 8);
+  --bp-largest: 67.5em;
+  --bp-large: 56.25em;
+  --bp-medium: 43.75em;
+  --bp-small: 34.25em;
+  --bp-smallest: 21.85em; }
+
 html {
   box-sizing: border-box;
   font-size: 62.5%; }
+  @media only screen and (max-width: 67.5em) {
+    html {
+      font-size: 60.5%; } }
+  @media only screen and (max-width: 50em) {
+    html {
+      font-size: 50.5%; } }
+  @media only screen and (max-width: 37.5em) {
+    html {
+      font-size: 0.5%; } }
 
 body {
   box-sizing: inherit; }
@@ -28,7 +48,7 @@ li {
 .body-grid {
   display: grid;
   grid-template-rows: [banner-start] 120vh [banner-end whoWeAre-start] min-content [whoWeAre-end ourProjects-start] min-content [ourProjects-end getCreative-start] min-content [getCreative-end aboutUs-start] min-content [aboutUs-end brandStrategy-start] max-content [brandStrategy-end footer-start] 120vh [footer-end];
-  grid-template-columns: [leftSidebar-start] 4rem [leftSidebar-end full-start] minmax(min-content, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 1fr) [col-end]) [center-end] minmax(min-content, 1fr) [full-end rightSidebar-start] 4rem [rightSidebar-end]; }
+  grid-template-columns: [leftSidebar-start] min-content [leftSidebar-end full-start] minmax(min-content, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 1fr) [col-end]) [center-end] minmax(min-content, 1fr) [full-end rightSidebar-start] min-content [rightSidebar-end]; }
 
 body {
   font-family: "Roboto" helvetica sans-serif;
@@ -50,12 +70,6 @@ body {
     text-align: right; }
   .banner h1 {
     opacity: 1; }
-
-:root {
-  --primary-dark: rgb(36, 39, 46);
-  --primary-light: rgb(228, 183, 99);
-  --text-light: rgb(231, 223, 223);
-  --text-dark: rgb(8, 8, 8); }
 
 .mb-sm {
   margin-bottom: 2rem; }
@@ -120,6 +134,7 @@ body {
 
 .banner {
   position: relative;
+  overflow: hidden;
   padding: 5%;
   z-index: 0;
   background-image: url(../img/MountainBanner.jpg);
@@ -167,30 +182,34 @@ body {
   position: relative;
   z-index: 0;
   background-color: #fff;
-  grid-column: 1 / -1; }
+  grid-column: 1 / -1;
+  margin-bottom: 2rem; }
   .whoWeAre__container {
-    max-width: 119rem;
     margin: -1 auto;
     position: relative;
     z-index: 2;
     grid-column: full-start / full-end;
     padding: 0 5%;
-    overflow: hidden;
     display: grid;
-    grid-template-columns: minmax(min-content, 1fr) minmax(min-content, 40%); }
+    grid-template-columns: minmax(min-content, 1fr) minmax(min-content, 1fr); }
     .whoWeAre__container::after {
       content: "";
       position: absolute;
       display: block;
       z-index: 1;
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       top: -1px;
       left: 20;
       clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 99% 100%);
       background-image: radial-gradient(circle at top left, #24272e 90%, rgba(36, 39, 46, 0.9));
       background-repeat: no-repeat;
       background-blend-mode: darken; }
+      @media only screen and (max-width: 67.5em) {
+        .whoWeAre__container::after {
+          width: 100vw;
+          height: 100vh;
+          clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 99% 100%); } }
   .whoWeAre__description {
     padding: 0 10%;
     grid-column: 1 / 2;
@@ -199,6 +218,15 @@ body {
     margin-left: -5%;
     display: grid;
     color: rgba(0, 0, 0, 0.8); }
+    @media only screen and (max-width: 67.5em) {
+      .whoWeAre__description {
+        grid-column: 1 / -1;
+        margin: 0 auto;
+        margin-bottom: -10rem;
+        padding: 15%; } }
+    @media only screen and (max-width: 50em) {
+      .whoWeAre__description {
+        margin-bottom: -5rem; } }
     .whoWeAre__description h1 {
       font-weight: 100;
       line-height: 0.9em;
@@ -208,18 +236,42 @@ body {
       font-weight: 100; }
   .whoWeAre__image-box {
     position: relative;
-    grid-column: 2 / -1; }
+    grid-column: 2 / -1;
+    width: 70%; }
+    @media only screen and (max-width: 67.5em) {
+      .whoWeAre__image-box {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center; } }
     .whoWeAre__image-box::after {
       content: url(../img/patternsmallgold.png);
       position: absolute;
       display: block;
       z-index: 2;
-      transform: scale(0.85) translate(30%, -80%); }
+      max-width: 8rem;
+      max-height: 8rem;
+      top: 25%;
+      left: 20%;
+      transform: scale(0.85); }
+      @media only screen and (max-width: 67.5em) {
+        .whoWeAre__image-box::after {
+          top: -10%;
+          left: 10%; } }
+      @media only screen and (max-width: 50em) {
+        .whoWeAre__image-box::after {
+          top: -10%;
+          left: 15%;
+          max-width: 2rem;
+          height: 1rem; } }
   .whoWeAre__image {
     position: relative;
     display: block;
     z-index: 3;
-    max-height: 70%; }
+    width: 100%; }
+    @media only screen and (max-width: 67.5em) {
+      .whoWeAre__image {
+        width: 50%; } }
   .whoWeAre::before {
     position: absolute;
     left: 0;
@@ -240,12 +292,12 @@ body {
     height: 30%; }
 
 .ourProjects {
-  max-width: 119rem;
-  margin: 0 auto;
+  padding: 5%;
   margin-bottom: 20rem;
   background-color: var(--primary-light);
   grid-column: full-start / full-end;
   background-color: transparent;
+  overflow: hidden;
   /*Left side of the section */
   /*Right side of the section */
   max-height: 100vh; }
@@ -383,35 +435,40 @@ body {
     row-gap: 4rem;
     font-weight: 100;
     font-size: 8rem;
-    transform: translate(70%, -200%); }
+    width: min-content;
+    transform: translate(100%, -150%);
+    align-self: center;
+    justify-self: center; }
   .getCreative__container {
-    max-width: 119rem;
-    margin: 0 auto;
     display: grid;
-    grid-template-columns: minmax(10rem, 40%) 30%;
+    grid-template-columns: minmax(10rem, 40%) 40%;
     column-gap: 10rem; }
-  .getCreative__img-box {
+  .getCreative__img {
     position: relative;
-    transform: translateY(50%); }
+    z-index: -1;
+    display: block;
+    width: 100%;
+    object-fit: cover; }
+  .getCreative__img-box {
+    transform: translateY(45%); }
     .getCreative__img-box::before {
       content: "";
       display: inline-block;
-      height: 70%;
-      width: 50%;
+      height: 80%;
+      width: 40%;
       position: absolute;
       z-index: 0;
-      top: -28%;
+      top: -30%;
       left: 14%;
       background-image: url(../img/patterndrkblue.png); }
     .getCreative__img-box:after {
       content: "";
       display: inline-block;
       height: 30%;
-      width: 2rem;
+      width: 1.5rem;
       position: absolute;
-      bottom: 0;
-      left: 150%;
-      transform: translate(-15%, 15%);
+      bottom: -10%;
+      left: 75%;
       z-index: 0;
       background-color: var(--primary-light); }
 
@@ -425,7 +482,6 @@ body {
     z-index: 2;
     display: block;
     width: 100%;
-    height: 100%;
     object-fit: cover; }
   .three-cards::before {
     content: "";
@@ -505,9 +561,8 @@ body {
       height: 100%;
       width: 10%;
       position: absolute;
-      top: 0;
-      right: -35%;
-      transform: translate(-15%, 15%);
+      top: 15%;
+      right: -20%;
       z-index: 0;
       background-color: var(--primary-dark); }
     .aboutUs__right::before {
@@ -517,7 +572,7 @@ body {
       width: 1.5rem;
       position: absolute;
       bottom: -50%;
-      right: -33%;
+      right: -18%;
       transform: translate(-15%, 15%);
       z-index: 5;
       background-color: var(--primary-light); }
@@ -548,7 +603,7 @@ body {
   grid-column: full-start / full-end;
   line-height: 3vw;
   font-size: 2vw;
-  padding: 2%;
+  padding: 5%;
   height: 300vh; }
   .brandStrategy__heading {
     display: inline-block;
@@ -572,9 +627,9 @@ body {
     position: absolute;
     z-index: -1;
     bottom: 10vw;
-    right: -2vw;
+    right: 2vw;
     height: 24vw;
-    width: 30vw;
+    width: 25vw;
     background-image: url(../img/patternsmallgold.png);
     background-size: cover;
     background-position: center; }
@@ -673,12 +728,13 @@ body {
   padding: 4rem;
   color: #fff; }
   .footer__heading {
-    text-align: center; }
+    text-align: center;
+    margin-bottom: 15rem; }
   .footer__container {
     margin-top: -20rem;
     padding: 2.5%;
     display: flex;
-    justify-content: space-around; }
+    justify-content: space-evenly; }
   .footer__service {
     min-height: 25rem;
     display: flex;
@@ -695,3 +751,9 @@ body {
       text-align: left; }
       .footer__service ul li:not(:last-child) {
         margin-bottom: 3rem; }
+  .footer__copyright {
+    font-size: 1.5rem;
+    text-align: center;
+    opacity: 0.8; }
+    .footer__copyright span {
+      color: var(--primary-light); }

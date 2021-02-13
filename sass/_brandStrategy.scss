@@ -5,7 +5,7 @@
   line-height: 3vw;
   font-size: 2vw;
   //makes the font responsive as well, unfortunately disables font-zoom (don't do this)
-  padding: 2%;
+  padding: 5%;
   height: 300vh;
 
   &__heading {
@@ -34,9 +34,9 @@
     position: absolute;
     z-index: -1;
     bottom: 10vw;
-    right: -2vw;
+    right: 2vw;
     height: 24vw;
-    width: 30vw;
+    width: 25vw;
     background-image: url(../img/patternsmallgold.png);
     background-size: cover;
     background-position: center;
