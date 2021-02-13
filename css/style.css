@@ -376,7 +376,7 @@ body {
   grid-column: full-start / full-end;
   height: auto;
   padding: 5%;
-  margin-bottom: 50rem; }
+  margin-bottom: 40rem; }
   .getCreative__heading {
     color: var(--primary-light);
     display: grid;
@@ -450,11 +450,97 @@ body {
     background-color: var(--primary-dark); }
 
 .aboutUs {
-  background-color: var(--primary-light);
+  max-width: 114rem;
+  margin: 0 auto;
+  background-color: transparent;
   grid-column: full-start / full-end;
+  margin-bottom: 40rem;
   font-size: 4rem;
   padding: 4rem;
   height: 10rem; }
+  .aboutUs__container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(15rem, 1fr)); }
+  .aboutUs__two-cards {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 35rem;
+    height: 40rem; }
+    .aboutUs__two-cards--img {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      display: block; }
+    .aboutUs__two-cards::before {
+      content: "";
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: var(--primary-light); }
+    .aboutUs__two-cards:after {
+      content: "";
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(-15%, 15%);
+      z-index: 0;
+      background-image: url(../img/patternsmallgold.png); }
+  .aboutUs__right {
+    position: relative;
+    display: grid;
+    transform: translateX(-20%); }
+    .aboutUs__right::after {
+      content: "";
+      display: inline-block;
+      height: 100%;
+      width: 10%;
+      position: absolute;
+      top: 0;
+      right: -35%;
+      transform: translate(-15%, 15%);
+      z-index: 0;
+      background-color: var(--primary-dark); }
+    .aboutUs__right::before {
+      content: "";
+      display: inline-block;
+      height: 50%;
+      width: 1.5rem;
+      position: absolute;
+      bottom: -50%;
+      right: -33%;
+      transform: translate(-15%, 15%);
+      z-index: 5;
+      background-color: var(--primary-light); }
+    .aboutUs__right p {
+      font-size: 4rem;
+      font-weight: 100;
+      line-height: 4rem;
+      margin-bottom: 5rem; }
+    .aboutUs__right ul {
+      font-weight: 100;
+      font-size: 2rem;
+      display: grid; }
+      .aboutUs__right ul::after {
+        content: "";
+        display: inline-block;
+        height: 60%;
+        width: 1.5rem;
+        position: absolute;
+        bottom: -30%;
+        left: -15%;
+        transform: translate(-15%, 15%);
+        z-index: 10;
+        background-color: var(--primary-dark); }
 
 .brandStrategy {
   position: relative;
