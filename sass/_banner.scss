@@ -1,18 +1,46 @@
 .banner {
-  position: relative;
+  @media only screen and (max-width: $bp-large) {
+    background-size: cover;
+  }
+  @media only screen and (max-width: $bp-medium) {
+    margin-bottom: -50%;
+  }
+  @media only screen and (max-width: $bp-phone) {
+    margin-bottom: -50%;
+  }
+  @media only screen and (max-width: $bp-small-phone) {
+    padding: 30% 5% 0 5%;
+    margin-bottom: -50%;
+  }
 
+  position: relative;
   overflow: hidden;
   padding: 5%;
   z-index: 0;
   background-image: url(../img/MountainBanner.jpg);
   background-size: 100%; //centers vertically, while cover -->centers horizontally
   background-position: center;
+  background-repeat: no-repeat;
   background-color: var(--primary-light);
   grid-column: leftSidebar-start / rigthSidebar-end;
   // min-width: 100vw;
 
+  &__heading {
+    @media only screen and (max-width: $bp-small-phone) {
+      line-height: 5rem;
+    }
+  }
   //Gray Angled banner rectangle
   &::after {
+    @media only screen and (max-width: $bp-large) {
+      clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 10% 100%);
+    }
+    @media only screen and (max-width: $bp-medium) {
+      clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    @media only screen and (max-width: $bp-small) {
+      clip-path: polygon(50% 0%, 100% 0%, 100% 100%, -20% 100%);
+    }
     content: "";
     position: absolute;
     z-index: 1; //should be over the background and under the content

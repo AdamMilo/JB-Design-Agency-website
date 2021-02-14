@@ -40,6 +40,8 @@ $bp-largest: 75em; //1200px divided by 16(default browser font size)
 $bp-large: 67.5em; //1080px;
 $bp-medium: 50em; //800px
 $bp-small: 37.5em; //600px;
+$bp-phone: 28.15em; //450px;
+$bp-small-phone: 25em; //400px;
 
 //CSS reset
 html {
@@ -62,7 +64,10 @@ html {
     font-size: 50.5%;
   }
   @media only screen and (max-width: $bp-small) {
-    font-size: 0.5%;
+    font-size: 40.5%;
+  }
+  @media only screen and (max-width: $bp-phone) {
+    font-size: 35%;
   }
 }
 body {

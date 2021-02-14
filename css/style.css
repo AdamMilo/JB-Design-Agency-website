@@ -20,7 +20,10 @@ html {
       font-size: 50.5%; } }
   @media only screen and (max-width: 37.5em) {
     html {
-      font-size: 0.5%; } }
+      font-size: 40.5%; } }
+  @media only screen and (max-width: 28.15em) {
+    html {
+      font-size: 35%; } }
 
 body {
   box-sizing: inherit; }
@@ -140,8 +143,25 @@ body {
   background-image: url(../img/MountainBanner.jpg);
   background-size: 100%;
   background-position: center;
+  background-repeat: no-repeat;
   background-color: var(--primary-light);
   grid-column: leftSidebar-start / rigthSidebar-end; }
+  @media only screen and (max-width: 67.5em) {
+    .banner {
+      background-size: cover; } }
+  @media only screen and (max-width: 50em) {
+    .banner {
+      margin-bottom: -50%; } }
+  @media only screen and (max-width: 28.15em) {
+    .banner {
+      margin-bottom: -50%; } }
+  @media only screen and (max-width: 25em) {
+    .banner {
+      padding: 30% 5% 0 5%;
+      margin-bottom: -50%; } }
+  @media only screen and (max-width: 25em) {
+    .banner__heading {
+      line-height: 5rem; } }
   .banner::after {
     content: "";
     position: absolute;
@@ -153,6 +173,15 @@ body {
     clip-path: polygon(45% 0%, 100% 0%, 100% 100%, 10% 100%);
     background-image: linear-gradient(to top right, #24272e 30%, rgba(36, 39, 46, 0) 100%), radial-gradient(circle at top right, #24272e 35%, rgba(36, 39, 46, 0) 100%);
     animation: banner-animation 0.4s; }
+    @media only screen and (max-width: 67.5em) {
+      .banner::after {
+        clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 10% 100%); } }
+    @media only screen and (max-width: 50em) {
+      .banner::after {
+        clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 100%); } }
+    @media only screen and (max-width: 37.5em) {
+      .banner::after {
+        clip-path: polygon(50% 0%, 100% 0%, 100% 100%, -20% 100%); } }
   .banner__container {
     position: relative;
     z-index: 2;
@@ -207,9 +236,18 @@ body {
       background-blend-mode: darken; }
       @media only screen and (max-width: 67.5em) {
         .whoWeAre__container::after {
-          width: 100vw;
+          width: 100%;
           height: 100vh;
-          clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 99% 100%); } }
+          clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 100% 100%);
+          left: 0;
+          top: 0; } }
+      @media only screen and (max-width: 37.5em) {
+        .whoWeAre__container::after {
+          width: 100%;
+          height: 100vh;
+          clip-path: polygon(75% 0%, 100% 0%, 100% 100%, 100% 100%);
+          left: 0;
+          top: 0; } }
   .whoWeAre__description {
     padding: 0 10%;
     grid-column: 1 / 2;
@@ -260,10 +298,14 @@ body {
           left: 10%; } }
       @media only screen and (max-width: 50em) {
         .whoWeAre__image-box::after {
-          top: -10%;
-          left: 15%;
-          max-width: 2rem;
-          height: 1rem; } }
+          transform: scale(0.65); } }
+      @media only screen and (max-width: 37.5em) {
+        .whoWeAre__image-box::after {
+          transform: scale(0.35); } }
+      @media only screen and (max-width: 25em) {
+        .whoWeAre__image-box::after {
+          transform: scale(0.25);
+          margin-right: -100rem; } }
   .whoWeAre__image {
     position: relative;
     display: block;
@@ -292,43 +334,101 @@ body {
     height: 30%; }
 
 .ourProjects {
+  position: relative;
   padding: 5%;
   margin-bottom: 20rem;
   background-color: var(--primary-light);
   grid-column: full-start / full-end;
   background-color: transparent;
-  overflow: hidden;
   /*Left side of the section */
-  /*Right side of the section */
-  max-height: 100vh; }
+  /*Right side of the section */ }
+  @media only screen and (max-width: 67.5em) {
+    .ourProjects {
+      margin-top: 35vh; } }
+  @media only screen and (max-width: 50em) {
+    .ourProjects {
+      margin-top: 30vh; } }
+  @media only screen and (max-width: 37.5em) {
+    .ourProjects {
+      margin-top: 20vh; } }
+  @media only screen and (max-width: 28.15em) {
+    .ourProjects {
+      margin-top: 15vh; } }
   .ourProjects__heading {
     position: relative;
     display: inline-block;
     margin-bottom: 2rem;
-    transform: translate(200%, 450%); }
+    margin-right: 5%;
+    right: 10%;
+    transform: translate(240%, 450%); }
+    @media only screen and (max-width: 67.5em) {
+      .ourProjects__heading {
+        transform: translate(200%, 500%);
+        margin-left: 5vw; } }
+    @media only screen and (max-width: 50em) {
+      .ourProjects__heading {
+        margin-left: 15vw;
+        font-size: 4rem; } }
+    @media only screen and (max-width: 25em) {
+      .ourProjects__heading {
+        transform: translateX(0%);
+        width: 80vw;
+        margin-left: 10vw;
+        margin-bottom: 20vh;
+        margin-top: 20vh; } }
     .ourProjects__heading::after {
       content: "";
       display: block;
-      width: 220%;
+      width: 200%;
       height: 2rem;
       position: absolute;
       bottom: -150%;
       background-color: var(--primary-dark); }
+      @media only screen and (max-width: 67.5em) {
+        .ourProjects__heading::after {
+          max-width: 40vw; } }
+      @media only screen and (max-width: 50em) {
+        .ourProjects__heading::after {
+          max-width: 35vw; } }
+      @media only screen and (max-width: 37.5em) {
+        .ourProjects__heading::after {
+          max-width: 30vw; } }
+      @media only screen and (max-width: 28.15em) {
+        .ourProjects__heading::after {
+          max-width: 35vw; } }
   .ourProjects__container {
     width: 100%;
     display: grid;
-    grid-template-columns: 40% 1fr; }
+    grid-template-columns: 40% 1fr;
+    height: min-content; }
   .ourProjects__left {
     padding-left: 10%;
     padding-bottom: 15%;
     transform: translateY(-10%); }
+    @media only screen and (max-width: 67.5em) {
+      .ourProjects__left {
+        grid-column: 1 / -1; } }
   .ourProjects__description--text {
     padding: 5%;
     padding-right: 15%;
     margin-left: -10%;
     margin-right: -10%;
     font-size: 1.6rem; }
+    @media only screen and (max-width: 67.5em) {
+      .ourProjects__description--text {
+        transform: translateX(120%);
+        font-size: 3rem;
+        line-height: 4rem;
+        padding: 0;
+        width: 40vw; } }
+    @media only screen and (max-width: 25em) {
+      .ourProjects__description--text {
+        transform: translateX(0%);
+        width: 80vw;
+        margin-bottom: 20vh;
+        margin-top: 20vh; } }
   .ourProjects__right {
+    position: relative;
     padding-left: 10%;
     padding-top: 5%;
     transform: translateY(10%); }
@@ -378,6 +478,10 @@ body {
   padding: 0%;
   max-width: 35rem;
   height: 30rem; }
+  @media only screen and (max-width: 67.5em) {
+    .product-collage {
+      grid-column: 1 / -1;
+      margin-top: -150%; } }
   .product-collage__heading {
     display: inline-block;
     padding: 4% 15rem 4% 3%;
@@ -389,6 +493,11 @@ body {
     background-color: var(--primary-dark);
     color: rgba(255, 255, 255, 0.8);
     transform: translate(65%, 115%); }
+    @media only screen and (max-width: 67.5em) {
+      .product-collage__heading {
+        margin-top: -80%;
+        font-size: 2.4rem;
+        position: absolute; } }
   .product-collage__img {
     position: absolute;
     top: 50%;
@@ -439,6 +548,15 @@ body {
     transform: translate(100%, -150%);
     align-self: center;
     justify-self: center; }
+    @media only screen and (max-width: 67.5em) {
+      .getCreative__heading {
+        font-size: 6rem; } }
+    @media only screen and (max-width: 50em) {
+      .getCreative__heading {
+        transform: translate(0%, -250%); } }
+    @media only screen and (max-width: 37.5em) {
+      .getCreative__heading {
+        transform: translate(0%, -260%); } }
   .getCreative__container {
     display: grid;
     grid-template-columns: minmax(10rem, 40%) 40%;
@@ -493,6 +611,9 @@ body {
     top: -10%;
     left: 12%;
     background-image: url(../img/patterngoldnew.png); }
+    @media only screen and (max-width: 50em) {
+      .three-cards::before {
+        background-image: url(../img/patternsmallgold.png); } }
   .three-cards:after {
     content: "";
     display: inline-block;

@@ -19,6 +19,18 @@
 
     align-self: center;
     justify-self: center;
+
+    @media only screen and (max-width: $bp-large) {
+      font-size: 6rem;
+    }
+    @media only screen and (max-width: $bp-medium) {
+      transform: translate(0%, -250%);
+    }
+    @media only screen and (max-width: $bp-small) {
+      transform: translate(0%, -260%);
+    }
+    @media only screen and (max-width: $bp-phone) {
+    }
   }
   &__container {
     //Preserving the layout even if the page is minimized
@@ -98,6 +110,15 @@
     top: -10%;
     left: 12%;
     background-image: url(../img/patterngoldnew.png);
+    @media only screen and (max-width: $bp-large) {
+    }
+    @media only screen and (max-width: $bp-medium) {
+      background-image: url(../img/patternsmallgold.png);
+    }
+    @media only screen and (max-width: $bp-small) {
+    }
+    @media only screen and (max-width: $bp-phone) {
+    }
   }
   &:after {
     content: "";

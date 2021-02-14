@@ -1,42 +1,82 @@
 .ourProjects {
-  //Preserving the layout even if the page is minimized
-  // max-width: 119rem;
-  // margin: 0 auto;
+  position: relative;
   padding: 5%;
   margin-bottom: 20rem;
-  //------------------
+
   background-color: var(--primary-light);
   grid-column: full-start / full-end;
   background-color: transparent;
-  overflow: hidden;
-  //########################
-  //REMEMBER TO ADD A GRAY ::after BLOCK ON THE LOW RIGHT CORNER !!!!!
-  //######################
-  //Adding a negative margin to bring the section closer to the previous one
+  // overflow: hidden;
 
+  @media only screen and (max-width: $bp-large) {
+    margin-top: 35vh;
+  }
+  @media only screen and (max-width: $bp-medium) {
+    margin-top: 30vh;
+  }
+  @media only screen and (max-width: $bp-small) {
+    margin-top: 20vh;
+  }
+  @media only screen and (max-width: $bp-phone) {
+    margin-top: 15vh;
+  }
   &__heading {
     position: relative; //so the ::after element can be absolutely positioned
     display: inline-block; //we want to make the width min-content not 100%
     margin-bottom: 2rem;
+    margin-right: 5%;
+    right: 10%;
+    transform: translate(240%, 450%); //Positioning the entire header element
 
-    //Positioning the entire header element
-    transform: translate(200%, 450%);
+    //OurProjects__heading Media queries
+    @media only screen and (max-width: $bp-large) {
+      transform: translate(200%, 500%);
+      margin-left: 5vw;
+    }
+    @media only screen and (max-width: $bp-medium) {
+      margin-left: 15vw;
+      font-size: 4rem;
+    }
+    @media only screen and (max-width: $bp-small) {
+    }
+    @media only screen and (max-width: $bp-small-phone) {
+      transform: translateX(0%);
+      width: 80vw;
+      margin-left: 10vw;
+      margin-bottom: 20vh;
+      margin-top: 20vh;
+    }
+
     &::after {
       content: "";
       display: block;
-      width: 220%;
+      width: 200%;
       height: 2rem;
-
       position: absolute;
       bottom: -150%;
       background-color: var(--primary-dark);
+
+      //ourProjects__heading::after media queries
+      @media only screen and (max-width: $bp-large) {
+        max-width: 40vw;
+      }
+      @media only screen and (max-width: $bp-medium) {
+        max-width: 35vw;
+      }
+      @media only screen and (max-width: $bp-small) {
+        max-width: 30vw;
+      }
+      @media only screen and (max-width: $bp-phone) {
+        max-width: 35vw;
+      }
     }
   }
   &__container {
     width: 100%;
-
     display: grid;
     grid-template-columns: 40% 1fr; //The first column takes up 40% the second, takes the rest of the space
+
+    height: min-content;
   }
 
   /*Left side of the section */
@@ -44,8 +84,26 @@
     padding-left: 10%;
     padding-bottom: 15%;
     transform: translateY(-10%);
+    //ourProjects__left media queries
+    @media only screen and (max-width: $bp-large) {
+      grid-column: 1 / -1;
+    }
   }
   &__description--text {
+    //ourProjects__description--text media queries
+    @media only screen and (max-width: $bp-large) {
+      transform: translateX(120%);
+      font-size: 3rem;
+      line-height: 4rem;
+      padding: 0;
+      width: 40vw;
+    }
+    @media only screen and (max-width: $bp-small-phone) {
+      transform: translateX(0%);
+      width: 80vw;
+      margin-bottom: 20vh;
+      margin-top: 20vh;
+    }
     //Some margin and padding hacks to align the text
     //Possibly translate property is better suited here
     padding: 5%;
@@ -57,6 +115,7 @@
 
   /*Right side of the section */
   &__right {
+    position: relative;
     padding-left: 10%;
     padding-top: 5%;
     transform: translateY(10%);
@@ -65,9 +124,6 @@
   &__button {
     transform: translateY(200%);
   }
-  //test
-
-  max-height: 100vh;
 }
 
 //This is the left side component
@@ -119,6 +175,13 @@
 //This is the right side component
 //Standalone complex product collage made up of a heading, image and ::before
 .product-collage {
+  @media only screen and (max-width: $bp-large) {
+    grid-column: 1 / -1;
+    margin-top: -150%;
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+  }
   display: grid;
   grid-template-rows: 1fr 1fr;
   position: relative;
@@ -129,6 +192,11 @@
   height: 30rem;
 
   &__heading {
+    @media only screen and (max-width: $bp-large) {
+      margin-top: -80%;
+      font-size: 2.4rem;
+      position: absolute;
+    }
     display: inline-block;
     padding: 4% 15rem 4% 3%;
     position: relative; //to enable z-index
