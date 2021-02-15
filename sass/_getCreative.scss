@@ -55,7 +55,9 @@
     @media only screen and(max-width: $bp-small) {
       transform: translate(0%, -260%);
     }
-    @media only screen and(max-width: $bp-phone) {
+    @media only screen and(max-width: $bp-smallest) {
+      transform: translate(-18%, -260%);
+      font-size: 6rem;
     }
   }
   &__container {
@@ -80,9 +82,7 @@
     object-fit: cover;
   }
   &__img-box {
-    transform: translateY(
-      45%
-    ); // remember this is 50% of the object's own height
+    transform: translateY(45%); // remember this is 50% of the object's own height
 
     &::before {
       content: "";
@@ -92,7 +92,7 @@
 
       position: absolute;
       z-index: 0;
-      top: -30%;
+      top: -25%;
       left: 14%;
       background-image: url("../img/patterndrkblue.png");
     }

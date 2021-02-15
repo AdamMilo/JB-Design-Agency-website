@@ -2,19 +2,36 @@
   position: relative; //enables absolute pseudo elements
   background-color: transparent;
   grid-column: full-start / full-end;
-  line-height: 3vw;
-  font-size: 2vw;
+  line-height: 3rem;
+  font-size: 2.5rem;
   //makes the font responsive as well, unfortunately disables font-zoom (don't do this)
   padding: 5%;
   height: 300vh;
+  @media only screen and(max-width: $bp-large) {
+    margin-bottom: -1px;
+    border-radius: 5px;
+  }
+  @media only screen and(max-width: $bp-medium) {
+    margin-bottom: 0;
+    height: 540vh;
+  }
 
   &__heading {
     display: inline-block;
     font-weight: 100;
     padding: 10% 2%;
     font-size: 4rem;
-    margin-right: 40%;
+    margin-right: 30%;
     text-align: left;
+
+    @media only screen and(max-width: $bp-largest) {
+      font-size: 4rem;
+      line-height: 4rem;
+      padding: 10% 0;
+    }
+    @media only screen and(max-width: $bp-large) {
+      margin-right: 10%;
+    }
   }
   ///Before and After decorative pseudo elements for the BrandStrategy section
   &::before {
@@ -29,6 +46,8 @@
     clip-path: polygon(0 70%, 100% 100%, 100% 100%, 0% 100%);
     background-color: var(--primary-dark);
   }
+
+  //Bottom Right decorative gold pattern
   &::after {
     content: "";
     position: absolute;
@@ -40,6 +59,19 @@
     background-image: url(../img/patternsmallgold.png);
     background-size: cover;
     background-position: center;
+
+    @media only screen and(max-width: $bp-large) {
+      transform: translate(10%, -20%);
+    }
+    @media only screen and(max-width: $bp-medium) {
+      transform: translate(-20%, 60%);
+    }
+    @media only screen and(max-width: $bp-small) {
+      transform: translate(0%, -10%);
+    }
+    @media only screen and(max-width: $bp-smallest) {
+      transform: translate(0%, -50%);
+    }
   }
 }
 .gallery {
@@ -50,7 +82,10 @@
   grid-template-columns: repeat(12, 1fr);
   grid-auto-rows: 70vh;
   grid-auto-columns: min-content;
-
+  @media only screen and(max-width: $bp-medium) {
+    width: 75vw;
+    margin: 0 auto;
+  }
   &__element {
     object-fit: contain;
     &--1 {
@@ -94,6 +129,13 @@
         z-index: 4;
         align-self: center;
         justify-self: center;
+        @media only screen and(max-width: $bp-large) {
+          text-align: center;
+          font-size: 2rem;
+        }
+        @media only screen and(max-width: $bp-medium) {
+          font-size: 2.5rem;
+        }
       }
       &::before {
         content: "";
@@ -146,6 +188,10 @@
       background-image: url(../img/RG_logo.jpg);
       background-size: cover;
       background-position: center;
+    }
+
+    @media only screen and(max-width: $bp-medium) {
+      grid-column: 1 / -1;
     }
   }
 }

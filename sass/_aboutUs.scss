@@ -141,6 +141,9 @@
         font-size: 3rem;
         transform: translateX(-20%);
       }
+      @media only screen and (max-width: $bp-medium_large) {
+        margin-right: 5rem;
+      }
       @media only screen and (max-width: $bp-medium) {
         font-size: 2.5rem;
         line-height: 3rem;
@@ -152,12 +155,12 @@
       font-size: 2rem;
       display: grid;
 
-      // decorative gray small bar
+      // decorative gray small bar to the left
       &::after {
         content: "";
         display: inline-block;
         height: 60%;
-        width: 1.5rem;
+        width: 1vw;
 
         position: absolute;
         bottom: -30%;
@@ -165,6 +168,10 @@
         transform: translate(-15%, 15%);
         z-index: 10;
         background-color: var(--primary-dark);
+        @media only screen and(max-width: $bp-smallest) {
+          height: 30%;
+          transform: translate(-15%, -150%);
+        }
       }
     }
   }
@@ -186,15 +193,16 @@
     }
   }
 
+  //Decorative gold bar to the right
   &::after {
     content: "";
     display: inline-block;
-    height: 15vh;
-    width: 1.5rem;
+    height: 20vh;
+    width: 1vw;
 
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 50%;
+    right: 0.5%;
     transform: translate(-0.5%, 350%);
     z-index: 5;
     background-color: var(--primary-light);

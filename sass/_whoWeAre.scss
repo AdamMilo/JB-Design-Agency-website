@@ -45,11 +45,7 @@
       top: -1px; //removes an invisible line between sections
       left: 20;
       clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 99% 100%);
-      background-image: radial-gradient(
-        circle at top left,
-        rgba($primary-dark, 1) 90%,
-        rgba($primary-dark, 0.9)
-      );
+      background-image: radial-gradient(circle at top left, rgba($primary-dark, 1) 90%, rgba($primary-dark, 0.9));
       background-repeat: no-repeat;
       background-blend-mode: darken;
     }
@@ -69,7 +65,11 @@
     }
     @media only screen and (max-width: $bp-widescreen) {
     }
+    @media only screen and (min-width: $bp-largest) {
+      // transform: translateX(-5%);
+    }
     @media only screen and (max-width: $bp-largest) {
+      transform: translateX(2.5%);
     }
     @media only screen and (max-width: $bp-large) {
       grid-column: 1 / -1;
@@ -82,6 +82,7 @@
     }
     @media only screen and (max-width: $bp-medium) {
       padding-right: 0 10%;
+
       margin-bottom: -5rem;
     }
 
@@ -92,13 +93,32 @@
       @media only screen and (max-width: $bp-largest) {
         font-size: 5rem;
       }
+      @media only screen and (max-width: $bp-large) {
+        transform: translateX(-12%);
+      }
       @media only screen and (max-width: $bp-medium_large) {
+        font-size: 6rem;
+      }
+      @media only screen and(max-width: $bp-smallest) {
         font-size: 5rem;
+        padding: 0 4%;
       }
     }
     & p {
       font-size: 2rem;
       font-weight: 100;
+
+      @media only screen and (max-width: $bp-large) {
+        transform: translateX(-12%);
+        font-size: 2.4rem;
+      }
+      @media only screen and (max-width: $bp-small_phone) {
+        font-size: 2.5rem;
+      }
+      @media only screen and(max-width: $bp-smallest) {
+        font-size: 2rem;
+        padding: 0 4%;
+      }
     }
   }
 
@@ -115,6 +135,7 @@
     grid-column: 2 / -1;
     width: 70%;
 
+    //Golden image decoration
     &::after {
       content: url(../img/patternsmallgold.png);
       position: absolute;
@@ -141,16 +162,20 @@
       @media only screen and (max-width: $bp-large) {
         top: -10%;
         left: 10%;
+        transform: scale(0.7) translate(280%, 0%);
       }
       @media only screen and (max-width: $bp-medium) {
-        transform: scale(0.65);
+        transform: scale(0.5) translate(300%, -150%);
       }
       @media only screen and (max-width: $bp-small) {
-        transform: scale(0.35);
+        transform: scale(0.3) translate(400%, -200%);
       }
       @media only screen and (max-width: $bp-small-phone) {
-        transform: scale(0.25);
+        transform: scale(0.2) translate(400%, -350%);
         margin-right: -100rem;
+      }
+      @media only screen and(max-width: $bp-smallest) {
+        transform: scale(0.15) translate(250%, -350%);
       }
     }
   }
