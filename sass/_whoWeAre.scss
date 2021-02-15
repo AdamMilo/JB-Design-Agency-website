@@ -57,6 +57,20 @@
 
   //LEFT SIDE OF THE SECTION
   &__description {
+    padding: 0 10%;
+    grid-column: 1 / 2;
+    align-self: center;
+    justify-self: start;
+    margin-left: -5%;
+    display: grid;
+
+    color: rgba(black, 0.8);
+    @media only screen and (max-width: $bp-ultrawide) {
+    }
+    @media only screen and (max-width: $bp-widescreen) {
+    }
+    @media only screen and (max-width: $bp-largest) {
+    }
     @media only screen and (max-width: $bp-large) {
       grid-column: 1 / -1;
       margin: 0 auto;
@@ -70,22 +84,20 @@
       padding-right: 0 10%;
       margin-bottom: -5rem;
     }
-    padding: 0 10%;
-    grid-column: 1 / 2;
-    align-self: center;
-    justify-self: start;
-    margin-left: -5%;
-    display: grid;
-
-    color: rgba(black, 0.8);
 
     & h1 {
       font-weight: 100;
       line-height: 0.9em;
       font-size: 6rem;
+      @media only screen and (max-width: $bp-largest) {
+        font-size: 5rem;
+      }
+      @media only screen and (max-width: $bp-medium_large) {
+        font-size: 5rem;
+      }
     }
     & p {
-      font-size: 2em;
+      font-size: 2rem;
       font-weight: 100;
     }
   }

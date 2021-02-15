@@ -148,12 +148,18 @@ body {
   background-repeat: no-repeat;
   background-color: var(--primary-light);
   grid-column: leftSidebar-start / rigthSidebar-end; }
+  @media only screen and (max-width: 106.26em) {
+    .banner {
+      background-size: cover; } }
+  @media only screen and (max-width: 75em) {
+    .banner {
+      background-size: cover; } }
+  @media only screen and (max-width: 72em) {
+    .banner {
+      background-size: cover; } }
   @media only screen and (max-width: 67.5em) {
     .banner {
       background-size: cover; } }
-  @media only screen and (max-width: 50em) {
-    .banner {
-      margin-bottom: -50%; } }
   @media only screen and (max-width: 28.15em) {
     .banner {
       margin-bottom: -50%; } }
@@ -275,8 +281,14 @@ body {
       font-weight: 100;
       line-height: 0.9em;
       font-size: 6rem; }
+      @media only screen and (max-width: 72em) {
+        .whoWeAre__description h1 {
+          font-size: 5rem; } }
+      @media only screen and (max-width: 49.5em) {
+        .whoWeAre__description h1 {
+          font-size: 5rem; } }
     .whoWeAre__description p {
-      font-size: 2em;
+      font-size: 2rem;
       font-weight: 100; }
   .whoWeAre__image-box {
     position: relative;
@@ -659,6 +671,7 @@ body {
     background-color: var(--primary-dark); }
 
 .aboutUs {
+  position: relative;
   max-width: 140rem;
   margin: 0 auto;
   background-color: transparent;
@@ -708,56 +721,23 @@ body {
     position: relative;
     display: grid;
     transform: translateX(-20%); }
-    .aboutUs__right::after {
-      content: "";
-      display: inline-block;
-      height: 100%;
-      width: 10%;
-      position: absolute;
-      top: 15%;
-      right: -20%;
-      z-index: 0;
-      background-color: var(--primary-dark); }
-      @media only screen and (min-width: 106.26em) {
-        .aboutUs__right::after {
-          right: -45rem; } }
-      @media only screen and (min-width: 75em) {
-        .aboutUs__right::after {
-          right: -40rem; } }
-      @media only screen and (min-width: 72em) {
-        .aboutUs__right::after {
-          right: -35rem; } }
-      @media only screen and (min-width: 67.5em) {
-        .aboutUs__right::after {
-          right: -30rem; } }
-    .aboutUs__right::before {
-      content: "";
-      display: inline-block;
-      height: 50%;
-      width: 1.5rem;
-      position: absolute;
-      bottom: -50%;
-      right: -18%;
-      transform: translate(-15%, 15%);
-      z-index: 5;
-      background-color: var(--primary-light); }
-      @media only screen and (min-width: 106.26em) {
-        .aboutUs__right::before {
-          right: -44rem; } }
-      @media only screen and (min-width: 75em) {
-        .aboutUs__right::before {
-          right: -40rem; } }
-      @media only screen and (min-width: 72em) {
-        .aboutUs__right::before {
-          right: -35rem; } }
-      @media only screen and (min-width: 67.5em) {
-        .aboutUs__right::before {
-          right: -30rem; } }
+    @media only screen and (max-width: 72em) {
+      .aboutUs__right {
+        transform: translateX(20%); } }
     .aboutUs__right p {
       font-size: 4rem;
       font-weight: 100;
       line-height: 4rem;
       margin-bottom: 5rem; }
+      @media only screen and (max-width: 72em) {
+        .aboutUs__right p {
+          font-size: 3rem;
+          transform: translateX(-20%); } }
+      @media only screen and (max-width: 50em) {
+        .aboutUs__right p {
+          font-size: 2.5rem;
+          line-height: 3rem;
+          transform: translateX(-10%); } }
     .aboutUs__right ul {
       font-weight: 100;
       font-size: 2rem;
@@ -773,6 +753,34 @@ body {
         transform: translate(-15%, 15%);
         z-index: 10;
         background-color: var(--primary-dark); }
+  .aboutUs::before {
+    content: "";
+    display: inline-block;
+    height: 75vh;
+    width: 2vw;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    z-index: 0;
+    background-color: var(--primary-dark); }
+    @media only screen and (max-width: 50em) {
+      .aboutUs::before {
+        display: none; } }
+  .aboutUs::after {
+    content: "";
+    display: inline-block;
+    height: 15vh;
+    width: 1.5rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(-0.5%, 350%);
+    z-index: 5;
+    background-color: var(--primary-light); }
+    @media only screen and (max-width: 50em) {
+      .aboutUs::after {
+        height: 30vw;
+        transform: translate(0%, 100%); } }
 
 .brandStrategy {
   position: relative;

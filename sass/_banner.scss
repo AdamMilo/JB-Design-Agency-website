@@ -1,10 +1,17 @@
 .banner {
+  @media only screen and (max-width: $bp-ultrawide) {
+    background-size: cover;
+  }
+  @media only screen and (max-width: $bp-widescreen) {
+    background-size: cover;
+  }
+  @media only screen and (max-width: $bp-largest) {
+    background-size: cover;
+  }
   @media only screen and (max-width: $bp-large) {
     background-size: cover;
   }
-  @media only screen and (max-width: $bp-medium) {
-    margin-bottom: -50%;
-  }
+
   @media only screen and (max-width: $bp-phone) {
     margin-bottom: -50%;
   }
@@ -50,8 +57,16 @@
     top: 0;
     left: 0;
     clip-path: polygon(45% 0%, 100% 0%, 100% 100%, 10% 100%);
-    background-image: linear-gradient(to top right, rgba($primary-dark, 1) 30%, rgba($primary-dark, 0) 100%),
-      radial-gradient(circle at top right, rgba($primary-dark, 1) 35%, rgba($primary-dark, 0) 100%);
+    background-image: linear-gradient(
+        to top right,
+        rgba($primary-dark, 1) 30%,
+        rgba($primary-dark, 0) 100%
+      ),
+      radial-gradient(
+        circle at top right,
+        rgba($primary-dark, 1) 35%,
+        rgba($primary-dark, 0) 100%
+      );
 
     //animations
     animation: banner-animation 0.4s;
