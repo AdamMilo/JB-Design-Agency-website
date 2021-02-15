@@ -1,6 +1,7 @@
+//This section is responsive until the 990px breakpoint
 .aboutUs {
   //Stops the section from breaking on zoom-out
-  max-width: 114rem;
+  max-width: 140rem;
   margin: 0 auto;
   ///////////////////
   background-color: transparent;
@@ -12,7 +13,6 @@
   font-size: 4rem;
   padding: 4rem;
   height: 10rem;
-
   &__container {
     display: grid;
     grid-template-columns: repeat(2, minmax(15rem, 1fr));
@@ -69,6 +69,7 @@
 
     transform: translateX(-20%);
 
+    //Decorative black bar
     &::after {
       content: "";
       display: inline-block;
@@ -81,6 +82,18 @@
       // transform: translate(200%, 15%);
       z-index: 0;
       background-color: var(--primary-dark);
+      @media only screen and (min-width: $bp-ultrawide) {
+        right: -45rem;
+      }
+      @media only screen and (min-width: $bp-widescreen) {
+        right: -40rem;
+      }
+      @media only screen and (min-width: $bp-largest) {
+        right: -35rem;
+      }
+      @media only screen and (min-width: $bp-large) {
+        right: -30rem;
+      }
     }
 
     //Decorative small gold bar
@@ -96,6 +109,18 @@
       transform: translate(-15%, 15%);
       z-index: 5;
       background-color: var(--primary-light);
+      @media only screen and (min-width: $bp-ultrawide) {
+        right: -44rem;
+      }
+      @media only screen and (min-width: $bp-widescreen) {
+        right: -40rem;
+      }
+      @media only screen and (min-width: $bp-largest) {
+        right: -35rem;
+      }
+      @media only screen and (min-width: $bp-large) {
+        right: -30rem;
+      }
     }
 
     & p {

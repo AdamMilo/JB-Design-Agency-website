@@ -1,11 +1,11 @@
-//Our Colors
-//dark gray -->  rgb(36, 39, 46);
-//dirty gold --> rgb(228, 183, 99);
+// Our Colors
+// dark gray -->  rgb(36, 39, 46);
+// dirty gold --> rgb(228, 183, 99);
 
-//Sass color variables
-//SASS variables  (allows us to place color variables in rgba() color functions)
-//Note that they should be stored in a separate folder and outside any brackets to work
-//Placing them outisde of any selectors made them work, since they didn't work when I declared them in :root{}
+// Sass color variables
+// SASS variables  (allows us to place color variables in rgba() color functions)
+// Note that they should be stored in a separate folder and outside any brackets to work
+// Placing them outisde of any selectors made them work, since they didn't work when I declared them in :root{}
 
 $primary-dark: rgb(36, 39, 46);
 $primary-light: rgb(228, 183, 99);
@@ -13,14 +13,19 @@ $primary-light: rgb(228, 183, 99);
 $text-light: rgb(231, 223, 223);
 $text-dark: rgb(8, 8, 8);
 
-//Media Query Breakpoints
-$bp-largest: 67.5em; //1080px; divided by the browser default 1em =16px
-$bp-large: 56.25em; //900px;
-$bp-medium: 43.75em; //700px;
-$bp-small: 34.25em; //550px;
-$bp-smallest: 21.85em; //350px;
+// Media Query Breakpoints
+$bp-ultrawide: 106.26em; //1700px;
+$bp-widescreen: 75em; // 1200px;
+$bp-largest: 67.5em; // 1080px; divided by the browser default 1em =16px
+$bp-large_largest: 62em; // 992px between large and largest
+$bp-large: 56.25em; // 900px;
+$bp-medium_large: 49.5em; // 800px between medium and large
+$bp-medium: 43.75em; // 700px ;
+$bp-small_medium: 39em; // 624px between small and medium 624px;
+$bp-small: 34.25em; // 550px;
+$bp-smallest_small: 28em; // 448px between smallest and small 448px;
+$bp-smallest: 21.85em; /* 350px*/
 
-//CSS variables (custom properties)
 :root {
   --primary-dark: rgb(36, 39, 46);
   --primary-light: rgb(228, 183, 99);
@@ -28,45 +33,46 @@ $bp-smallest: 21.85em; //350px;
   --text-light: rgb(231, 223, 223);
   --text-dark: rgb(8, 8, 8);
 
-  --bp-largest: 67.5em; //1080px; divided by the browser default 1em =16px
-  --bp-large: 56.25em; //900px;
-  --bp-medium: 43.75em; //700px;
-  --bp-small: 34.25em; //550px;
-  --bp-smallest: 21.85em; //350px;
+  --bp-widescreen: 75em; // 1200px;
+  --bp-largest: 67.5em; // 1080px; divided by the browser default 1em =16px
+  --bp-large: 56.25em; // 900px;
+  --bp-medium: 43.75em; // 700px;
+  --bp-small: 34.25em; // 550px;
+  --bp-smallest: 21.85em; // 350px;
 }
 
-//RESPONSIVE BREAKPOINTS
-$bp-largest: 75em; //1200px divided by 16(default browser font size)
-$bp-large: 67.5em; //1080px;
-$bp-medium: 50em; //800px
-$bp-small: 37.5em; //600px;
-$bp-phone: 28.15em; //450px;
-$bp-small-phone: 25em; //400px;
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 72em; // 1150px divided by 16(default browser fontsize)
+$bp-large: 67.5em; // 1080px;
+$bp-medium: 50em; // 800px
+$bp-small: 37.5em; // 600px;
+$bp-phone: 28.15em; // 450px;
+$bp-small-phone: 25em; // 400px;
 
-//CSS reset
+// CSS reset
 html {
   box-sizing: border-box;
   font-size: 62.5%; // (10/16)*100  --> 1rem = 10px
 
-  //  $bp-largest: 67.5em; //1080px; divided by the browser default 1em =16px
+  // $bp-largest: 67.5em; //1080px; divided by the browser default 1em =16px
   // $bp-large: 56.25em; //900px;
   // $bp-medium: 43.75em; //700px;
   // $bp-small: 34.25em; //550px;
   // $bp-smallest: 21.85em; //350px;
   // @media only screen and (max-width: $bp-largest) {
-  //   font-size: 12.5%;
+  // font-size: 12.5%;
   // }
 
-  @media only screen and (max-width: $bp-large) {
+  @media only screen and(max-width: $bp-large) {
     font-size: 60.5%;
   }
-  @media only screen and (max-width: $bp-medium) {
+  @media only screen and(max-width: $bp-medium) {
     font-size: 50.5%;
   }
-  @media only screen and (max-width: $bp-small) {
+  @media only screen and(max-width: $bp-small) {
     font-size: 40.5%;
   }
-  @media only screen and (max-width: $bp-phone) {
+  @media only screen and(max-width: $bp-phone) {
     font-size: 35%;
   }
 }
@@ -94,25 +100,18 @@ input {
 li {
   list-style: none;
 }
-//Our overal layout-grid definition
+// Our overal layout-grid definition
 .body-grid {
   display: grid;
 
-  grid-template-rows:
-    [banner-start]120vh
-    [banner-end whoWeAre-start] min-content
-    [whoWeAre-end ourProjects-start] min-content
-    [ourProjects-end getCreative-start] min-content
-    [getCreative-end aboutUs-start] min-content
-    [aboutUs-end brandStrategy-start] max-content
-    [brandStrategy-end footer-start] 120vh
-    [footer-end];
+  grid-template-rows: [banner-start]120vh [banner-end whoWeAre-start] min-content [whoWeAre-end ourProjects-start] min-content [ourProjects-end getCreative-start] min-content [getCreative-end aboutUs-start] min-content [aboutUs-end brandStrategy-start] max-content [brandStrategy-end footer-start] 120vh [footer-end];
 
   grid-template-columns:
-    [leftSidebar-start] min-content //fixed width sidebar for decorations
-    [leftSidebar-end full-start] minmax(min-content, 1fr) //responsive empty column
+    [leftSidebar-start] min-content// fixed width sidebar for decorations
+    [leftSidebar-end full-start] minmax(min-content, 1fr)
+    // responsive empty column
     [center-start] repeat(8, [col-start] minmax(min-content, 1fr) [col-end])
-    [center-end] minmax(min-content, 1fr) //responsive empty column
-    [full-end rightSidebar-start] min-content //fixed width sidebar for decorations
+    [center-end] minmax(min-content, 1fr) // responsive empty column
+    [full-end rightSidebar-start] min-content// fixed width sidebar for decorations
     [rightSidebar-end];
 }

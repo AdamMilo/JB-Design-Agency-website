@@ -1,49 +1,75 @@
+//Made responsive down to 330px
 .getCreative {
   background: transparent;
   grid-column: full-start / full-end;
   height: auto;
   padding: 5%;
-
   // overflow: hidden; //FIXES THE LOWER Scroll bar
-  //TEMPORARY (TO SHOE AWAY THE SECTION UNDERNEATH
+  // TEMPORARY (TO SHOE AWAY THE SECTION UNDERNEATH
   margin-bottom: 40rem;
 
+  @media only screen and (min-width: $bp-widescreen) {
+    margin-top: -30rem;
+  }
+  @media only screen and (max-width: $bp-widescreen) {
+    margin-top: -30rem;
+  }
+  @media only screen and(max-width: $bp-large) {
+    margin-top: -20rem;
+  }
+  @media only screen and(max-width: $bp-medium) {
+    margin-top: -15rem;
+  }
+
+  @media only screen and(max-width: $bp-small) {
+    margin-top: -10rem;
+  }
   &__heading {
     color: var(--primary-light);
     display: grid;
     row-gap: 4rem;
     font-weight: 100;
     font-size: 8rem;
-    width: min-content;
-    transform: translate(100%, -150%);
-
+    width: 40vw;
+    transform: translate(60%, -150%);
     align-self: center;
     justify-self: center;
 
-    @media only screen and (max-width: $bp-large) {
-      font-size: 6rem;
+    @media only screen and(min-width: $bp-widescreen) {
+      transform: translate(54%, -150%);
+      font-size: 10rem;
+      row-gap: 8rem;
     }
-    @media only screen and (max-width: $bp-medium) {
-      transform: translate(0%, -250%);
+    @media only screen and(max-width: $bp-largest) {
+      transform: translate(54%, -150%);
     }
-    @media only screen and (max-width: $bp-small) {
+    @media only screen and(max-width: $bp-large_largest) {
+      font-size: 7rem;
+    }
+    @media only screen and(max-width: $bp-large) {
+      transform: translate(10%, -300%);
+    }
+    @media only screen and(max-width: $bp-medium) {
+      transform: translate(10%, -280%);
+    }
+    @media only screen and(max-width: $bp-small) {
       transform: translate(0%, -260%);
     }
-    @media only screen and (max-width: $bp-phone) {
+    @media only screen and(max-width: $bp-phone) {
     }
   }
   &__container {
-    //Preserving the layout even if the page is minimized
+    // Preserving the layout even if the page is minimized
     // max-width: 119rem;
     // margin: 0 auto;
-    //Unfortunately it completely messes up smaller screens
-    //////////////
+    // Unfortunately it completely messes up smaller screens
+    // ////////////
     display: grid;
 
     grid-template-columns: minmax(10rem, 40%) 40%;
     column-gap: 10rem;
   }
-  //RIGHT SIDE OF THE CONTAINER
+  // RIGHT SIDE OF THE CONTAINER
 
   &__img {
     position: relative;
@@ -54,7 +80,9 @@
     object-fit: cover;
   }
   &__img-box {
-    transform: translateY(45%); //remember this is 50% of the object's own height
+    transform: translateY(
+      45%
+    ); // remember this is 50% of the object's own height
 
     &::before {
       content: "";
@@ -66,7 +94,7 @@
       z-index: 0;
       top: -30%;
       left: 14%;
-      background-image: url(../img/patterndrkblue.png);
+      background-image: url("../img/patterndrkblue.png");
     }
     &:after {
       content: "";
@@ -84,7 +112,7 @@
   }
 }
 
-//Left side of the container
+// Left side of the container
 .three-cards {
   position: relative;
   grid-column: 1 / 2;
@@ -109,15 +137,15 @@
     z-index: 0;
     top: -10%;
     left: 12%;
-    background-image: url(../img/patterngoldnew.png);
-    @media only screen and (max-width: $bp-large) {
+    background-image: url("../img/patterngoldnew.png");
+    @media only screen and(max-width: $bp-large) {
     }
-    @media only screen and (max-width: $bp-medium) {
-      background-image: url(../img/patternsmallgold.png);
+    @media only screen and(max-width: $bp-medium) {
+      background-image: url("../img/patternsmallgold.png");
     }
-    @media only screen and (max-width: $bp-small) {
+    @media only screen and(max-width: $bp-small) {
     }
-    @media only screen and (max-width: $bp-phone) {
+    @media only screen and(max-width: $bp-phone) {
     }
   }
   &:after {

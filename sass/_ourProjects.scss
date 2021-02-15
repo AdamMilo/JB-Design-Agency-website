@@ -8,17 +8,15 @@
   background-color: transparent;
   // overflow: hidden;
 
+  
   @media only screen and (max-width: $bp-large) {
-    margin-top: 35vh;
+    margin-top: 5rem;
   }
   @media only screen and (max-width: $bp-medium) {
-    margin-top: 30vh;
   }
   @media only screen and (max-width: $bp-small) {
-    margin-top: 20vh;
   }
   @media only screen and (max-width: $bp-phone) {
-    margin-top: 15vh;
   }
   &__heading {
     position: relative; //so the ::after element can be absolutely positioned
