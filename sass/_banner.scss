@@ -1,4 +1,15 @@
 .banner {
+  position: relative;
+  overflow: hidden;
+  padding: 5%;
+  z-index: 0;
+  background-image: url(../img/MountainBanner.jpg);
+  background-size: 100%; //centers vertically, while cover -->centers horizontally
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--primary-light);
+  grid-column: leftSidebar-start / rigthSidebar-end;
+  // min-width: 100vw;
   @media only screen and (max-width: $bp-ultrawide) {
     background-size: cover;
   }
@@ -19,18 +30,6 @@
     padding: 30% 5% 0 5%;
     margin-bottom: -50%;
   }
-
-  position: relative;
-  overflow: hidden;
-  padding: 5%;
-  z-index: 0;
-  background-image: url(../img/MountainBanner.jpg);
-  background-size: 100%; //centers vertically, while cover -->centers horizontally
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: var(--primary-light);
-  grid-column: leftSidebar-start / rigthSidebar-end;
-  // min-width: 100vw;
 
   &__heading {
     @media only screen and (max-width: $bp-small-phone) {
@@ -57,16 +56,8 @@
     top: 0;
     left: 0;
     clip-path: polygon(45% 0%, 100% 0%, 100% 100%, 10% 100%);
-    background-image: linear-gradient(
-        to top right,
-        rgba($primary-dark, 1) 30%,
-        rgba($primary-dark, 0) 100%
-      ),
-      radial-gradient(
-        circle at top right,
-        rgba($primary-dark, 1) 35%,
-        rgba($primary-dark, 0) 100%
-      );
+    background-image: linear-gradient(to top right, rgba($primary-dark, 1) 30%, rgba($primary-dark, 0) 100%),
+      radial-gradient(circle at top right, rgba($primary-dark, 1) 35%, rgba($primary-dark, 0) 100%);
 
     //animations
     animation: banner-animation 0.4s;
@@ -96,16 +87,104 @@
     animation: pop-in-animation 0.3s ease-out;
   }
   &__logo-box {
+    position: relative;
     width: 20rem;
     height: 20rem;
     justify-self: end;
 
     perspective: 250px;
   }
+
+  //LOGO Front SIDE (logo image)
   &__logo {
     width: 100%;
 
     //animations
     animation: rotate-around-bottom-right 0.3s;
+
+    //LOGO Backside  (nav Bar Image)
+    &--nav {
+      //This is the nav Overlay that expands when the nav button is clicked
+      height: 0px;
+      width: 0px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      visibility: hidden;
+      background-color: var(--primary-light);
+      transform: translate(-50%, -50%) scale(0); //When the user clicks the nav, it will scale up to 100%
+      //remember to incluide all of the transform functions you still want to apply, whenever changing a single function
+    }
+    &--checkbox {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      display: none;
+    }
+    &--navButton {
+      z-index: 50;
+
+      //Centering the nav menu over the logo
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate(56%, -56%);
+      //We are creating a round nav button rotateY(180deg)
+      width: 16rem;
+      height: 16rem;
+      border-radius: 50%;
+      box-shadow: 0 0rem 8rem rgba(black, 0.8);
+      background-color: var(--primary-light);
+
+      //Rotating card effect to the button
+      backface-visibility: hidden; //so the nav button is not visible until rotated to the screen
+      // transform: rotateY(180deg);--> Remember that the element can have only one transform property
+      //to change the rotateY() you have to add the full -> transform: translate(56%, -56%) rotateY(0);
+    }
+    &--navIcon {
+      &,
+      &::before,
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        content: "";
+        position: absolute;
+        display: inline-block;
+
+        width: 4rem;
+        height: 2px;
+        background-color: var(--primary-dark);
+
+        transition: all 0.6s;
+      }
+      &::before {
+        margin-top: -0.9rem;
+      }
+      &::after {
+        margin-top: 0.9rem;
+      }
+
+      //Icon hover animation
+      &:hover {
+        &::before {
+          margin-top: -1rem;
+        }
+        &::after {
+          margin-top: 1rem;
+        }
+      }
+    }
+
+    //When the user clicks on the checkBox button, the navButton overlay becomes 100%width
+    &--checkbox:checked &--nav {
+      position: fixed;
+
+      width: 100vw;
+      height: 10vh;
+      transform: translate(-50%, -50%) scale(1);
+    }
   }
 }

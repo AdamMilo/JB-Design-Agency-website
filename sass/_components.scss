@@ -3,6 +3,7 @@
 //this project becomes large enough to warrant a
 // SASS 7-1 pattern architecture
 
+
 //Standalone component made up of an image and a backgrdound before element
 //--> Currently implemented in "OurProducts" section
 .two-cards {
@@ -14,7 +15,7 @@
   max-width: 35rem;
   height: 40rem;
 
-  &__image {
+  &--image {
     position: relative;
     z-index: 2;
     width: 100%;
